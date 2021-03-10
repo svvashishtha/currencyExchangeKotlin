@@ -10,6 +10,7 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import com.google.android.material.internal.TextWatcherAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -20,9 +21,23 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
+    private val textWatcher = object : TextWatcherAdapter() {
+        override fun afterTextChanged(s: Editable) {
+            s.toString().let { string ->
+                if (string.isNotEmpty()) {
+                    string.toDouble().let {
+                        viewModel.getExchangeValue(it)
+                    }
+                }
+            }
+        }
+    }
+    private var textArea1: EditText? = null
+    private var textArea2: EditText? = null
+    var resultTextView: EditText? = null
     val viewModel by viewModels<MainViewModel>()
-    var spinner1 : Spinner? = null
-    var spinner2 : Spinner? = null
+    private var spinner1: Spinner? = null
+    private var spinner2: Spinner? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,11 +47,13 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        spinner1 = view.findViewById<Spinner>(R.id.spinner_1)
-        spinner2 = view.findViewById<Spinner>(R.id.spinner_2)
+        spinner1 = view.findViewById(R.id.spinner_1)
+        spinner2 = view.findViewById(R.id.spinner_2)
+        textArea1 = view.findViewById(R.id.text_area_1)
+        textArea2 = view.findViewById(R.id.text_area_2)
         viewModel.getExchangeRate()
-        viewModel.currencyStrings.observe(viewLifecycleOwner, Observer{
-            it?.let{
+        viewModel.currencyStrings.observe(viewLifecycleOwner, {
+            it?.let {
                 val adapter1: ArrayAdapter<String> = ArrayAdapter(
                     view.context,
                     android.R.layout.simple_spinner_item, it
@@ -51,7 +68,15 @@ class MainFragment : Fragment() {
                 spinner2?.adapter = adapter2
             }
         })
-        spinner1?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+        viewModel.currentExchangeRate.observe(viewLifecycleOwner, {
+            it?.let {
+                if (it.isFinite()) {
+                    resultTextView?.setText(it.toString())
+                }
+            }
+
+        })
+        spinner1?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
@@ -66,7 +91,7 @@ class MainFragment : Fragment() {
             }
 
         }
-        spinner2?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+        spinner2?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
@@ -81,30 +106,22 @@ class MainFragment : Fragment() {
             }
 
         }
-        view.findViewById<EditText>(R.id.text_area_1).addTextChangedListener(object: TextWatcher{
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
+        textArea1?.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                textArea1?.addTextChangedListener(textWatcher)
+                textArea2?.removeTextChangedListener(textWatcher)
+                viewModel.setConversionMode(1)
+                resultTextView = textArea2
             }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
+        }
+        textArea2?.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                textArea2?.addTextChangedListener(textWatcher)
+                textArea1?.removeTextChangedListener(textWatcher)
+                viewModel.setConversionMode(2)
+                resultTextView = textArea1
             }
-
-            override fun afterTextChanged(s: Editable?) {
-               s?.toString()?.let{
-                   if (it.isNotEmpty())
-                   {
-                       it.toDouble()?.let{
-                           //convert it to euro
-
-                           view.findViewById<EditText>(R.id.text_area_2).setText(viewModel.getExchangeValue(it))
-                       }
-                   }
-               }
-            }
-
-        })
-
+        }
     }
 
 }
