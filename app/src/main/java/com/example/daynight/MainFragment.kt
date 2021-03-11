@@ -110,7 +110,7 @@ class MainFragment : Fragment() {
             if (hasFocus) {
                 textArea1?.addTextChangedListener(textWatcher)
                 textArea2?.removeTextChangedListener(textWatcher)
-                viewModel.setConversionMode(1)
+                viewModel.setConversionMode(2)
                 resultTextView = textArea2
             }
         }
@@ -118,7 +118,7 @@ class MainFragment : Fragment() {
             if (hasFocus) {
                 textArea2?.addTextChangedListener(textWatcher)
                 textArea1?.removeTextChangedListener(textWatcher)
-                viewModel.setConversionMode(2)
+                viewModel.setConversionMode(1)
                 resultTextView = textArea1
             }
         }
