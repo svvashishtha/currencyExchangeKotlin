@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainFragment">
 
     <EditText
@@ -11,6 +11,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen12"
+        android:autofillHints="1"
+        android:hint="@string/_1"
         android:gravity="end"
         android:inputType="number"
         android:padding="@dimen/dimen12"
@@ -19,16 +21,16 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="@id/half_screen_vertical"
         app:layout_constraintTop_toTopOf="parent"
-        tools:hint="9" />
+         />
 
     <Spinner
         android:id="@+id/spinner_1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/half_screen_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/half_screen_vertical"
+        app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@android:layout/simple_list_item_1" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -43,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.25" />
 
     <EditText
         android:id="@+id/text_area_2"
@@ -51,23 +53,32 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen12"
         android:gravity="end"
+        android:hint="@string/_1"
+        android:autofillHints="1"
         android:inputType="number"
         android:padding="@dimen/dimen12"
         android:textAlignment="textEnd"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/_3_4_screen_horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="@id/half_screen_vertical"
         app:layout_constraintTop_toTopOf="@id/half_screen_horizontal"
-        tools:hint="9" />
+        />
 
 
     <Spinner
         android:id="@+id/spinner_2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/_3_4_screen_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/half_screen_horizontal"
         app:layout_constraintStart_toStartOf="@id/half_screen_vertical"
+        app:layout_constraintTop_toTopOf="@id/half_screen_horizontal"
         tools:listitem="@android:layout/simple_list_item_1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/_3_4_screen_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
 </androidx.constraintlayout.widget.ConstraintLayout>
