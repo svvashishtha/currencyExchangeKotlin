@@ -71,7 +71,7 @@ class MainFragment : Fragment() {
         viewModel.currentExchangeRate.observe(viewLifecycleOwner, {
             it?.let {
                 if (it.isFinite()) {
-                    resultTextView?.setText(it.toString())
+                    resultTextView?.setText(String.format("%.2f",it))
                 }
             }
 
