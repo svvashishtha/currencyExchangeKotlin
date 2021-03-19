@@ -31,7 +31,7 @@ class MainFragmentTest {
     @Inject
     lateinit var repo: ExchangeRepo
     private val currencyStrings: MutableList<String> = mutableListOf<String>()
-    private var currencyStringsMap = ArrayMap<String, Double>()
+    private var currencyStringsMap = HashMap<String, Double>()
 
     @Before
     fun getCurrencyStrings() {
