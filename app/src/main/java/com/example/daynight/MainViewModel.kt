@@ -17,7 +17,7 @@ class MainViewModel @Inject constructor(private val exchangeRepo: ExchangeRepo) 
     private var currency1: String = "CAD"
     private var currency2: String = "CAD"
     val currencyStrings = MutableLiveData<MutableList<String>?>()
-    private var currencyStringsMap = ArrayMap<String, Double>()
+    private var currencyStringsMap = HashMap<String, Double>()
     val currentExchangeRate = MutableLiveData<Double>()
     private var amountToExchange = 0.0
     private var conversionMode = 1

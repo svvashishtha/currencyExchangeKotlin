@@ -5,10 +5,10 @@ import com.example.daynight.models.ExchangeRateResponse
 
 class CurrencyUtils {
     companion object {
-        fun getCurrencyStringList(exchangeRateResponse: ExchangeRateResponse): Pair<MutableList<String>, ArrayMap<String, Double>> {
+        fun getCurrencyStringList(exchangeRateResponse: ExchangeRateResponse): Pair<MutableList<String>, HashMap<String, Double>> {
 
             val currencyList = mutableListOf<String>()
-            val currencyStringsMap = ArrayMap<String, Double>()
+            val currencyStringsMap = HashMap<String, Double>()
             if (exchangeRateResponse.rates.cAD?.isFinite() == true && exchangeRateResponse.rates.cAD > 0) {
                 currencyList.add("CAD")
                 currencyStringsMap["CAD"] = exchangeRateResponse.rates.cAD
