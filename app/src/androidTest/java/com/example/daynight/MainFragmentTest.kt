@@ -64,7 +64,17 @@ class MainFragmentTest {
     @Test
     fun checkCADConvertsToCAD() {
         onView(withId(R.id.text_area_1)).perform(typeText("1"))
-        onView(withId(R.id.text_area_2)).check(matches(withText("1.0")))
+        val convertedString = 1.0
+        onView(withId(R.id.text_area_2)).check(
+            matches(
+                withText(
+                    String.format(
+                        "%.2f",
+                        convertedString
+                    )
+                )
+            )
+        )
     }
 
     @Test
