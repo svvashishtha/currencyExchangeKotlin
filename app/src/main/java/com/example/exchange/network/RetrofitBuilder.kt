@@ -1,4 +1,4 @@
-package com.example.daynight.network
+package com.example.exchange.network
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

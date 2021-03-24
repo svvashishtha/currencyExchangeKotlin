@@ -1,6 +1,6 @@
-package com.example.daynight.network
+package com.example.exchange.network
 
-import com.example.daynight.models.ExchangeRateResponse
+import com.example.exchange.models.ExchangeRateResponse
 import com.google.gson.Gson
 import javax.inject.Inject
 

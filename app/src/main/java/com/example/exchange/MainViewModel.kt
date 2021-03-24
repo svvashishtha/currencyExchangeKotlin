@@ -1,11 +1,10 @@
-package com.example.daynight
+package com.example.exchange
 
-import android.util.ArrayMap
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.daynight.CurrencyUtils.Companion.getCurrencyStringList
-import com.example.daynight.network.ExchangeRepo
+import com.example.exchange.CurrencyUtils.Companion.getCurrencyStringList
+import com.example.exchange.network.ExchangeRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

@@ -11,13 +11,13 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.example.daynight"
+        applicationId "com.example.exchange"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "com.example.daynight.CustomTestRunner"
+        testInstrumentationRunner "com.example.exchange.CustomTestRunner"
     }
 
     buildTypes {

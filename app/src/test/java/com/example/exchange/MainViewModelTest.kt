@@ -1,13 +1,12 @@
-package com.example.daynight
+package com.example.exchange
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.daynight.network.ExchangeRepo
-import com.example.daynight.network.RetrofitBuilder
+import com.example.exchange.network.ExchangeRepo
+import com.example.exchange.network.RetrofitBuilder
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito.*
 import org.robolectric.annotation.Config
 
 @Config(manifest=Config.NONE)

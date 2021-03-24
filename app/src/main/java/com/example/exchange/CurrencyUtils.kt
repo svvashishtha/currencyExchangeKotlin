@@ -1,7 +1,6 @@
-package com.example.daynight
+package com.example.exchange
 
-import android.util.ArrayMap
-import com.example.daynight.models.ExchangeRateResponse
+import com.example.exchange.models.ExchangeRateResponse
 
 class CurrencyUtils {
     companion object {

@@ -1,6 +1,5 @@
-package com.example.daynight
+package com.example.exchange
 
-import android.util.ArrayMap
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.typeText
@@ -8,8 +7,8 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.LargeTest
-import com.example.daynight.CurrencyUtils.Companion.getCurrencyStringList
-import com.example.daynight.network.ExchangeRepo
+import com.example.exchange.CurrencyUtils.Companion.getCurrencyStringList
+import com.example.exchange.network.ExchangeRepo
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.runBlocking

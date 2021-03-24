@@ -1,7 +1,6 @@
-package com.example.daynight.network
+package com.example.exchange.network
 
-import com.example.daynight.models.ExchangeRateResponse
-import retrofit2.Call
+import com.example.exchange.models.ExchangeRateResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

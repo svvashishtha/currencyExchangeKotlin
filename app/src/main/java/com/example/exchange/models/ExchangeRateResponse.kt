@@ -1,4 +1,4 @@
-package com.example.daynight.models
+package com.example.exchange.models
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
