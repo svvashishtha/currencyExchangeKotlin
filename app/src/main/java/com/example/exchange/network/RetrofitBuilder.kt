@@ -11,7 +11,7 @@ class RetrofitBuilder @Inject constructor() {
 
     fun getExchangeRetrofitClient(): ExchangeService {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.exchangeratesapi.io/")
+            .baseUrl("http://api.exchangeratesapi.io/")
             .client(getHttpClient())
             .addConverterFactory(GsonConverterFactory.create())
             .build()

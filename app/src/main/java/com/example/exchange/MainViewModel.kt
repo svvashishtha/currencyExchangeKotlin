@@ -16,16 +16,27 @@ class MainViewModel @Inject constructor(private val exchangeRepo: ExchangeRepo) 
     private var currency1: String = "CAD"
     private var currency2: String = "CAD"
     val currencyStrings = MutableLiveData<MutableList<String>?>()
+    val errorString = MutableLiveData<String>()
     private var currencyStringsMap = HashMap<String, Double>()
     val currentExchangeRate = MutableLiveData<Double>()
     private var amountToExchange = 0.0
     private var conversionMode = 1
+
     fun getExchangeRate() {
         viewModelScope.launch {
             val rateLD = exchangeRepo.getExchangeRate()
-            val pair = getCurrencyStringList(rateLD)
-            currencyStrings.value = pair.first
-            currencyStringsMap = pair.second
+            if (rateLD.rates !=null) {
+                rateLD.rates?.let{
+                    val pair = getCurrencyStringList(it)
+                    currencyStrings.value = pair.first
+                    currencyStringsMap = pair.second
+                }
+
+            }else{
+                rateLD.error?.let{
+                    errorString.value = it.toString()
+                }
+            }
         }
     }
 

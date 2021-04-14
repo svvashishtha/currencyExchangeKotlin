@@ -1,144 +1,144 @@
 package com.example.exchange
 
-import com.example.exchange.models.ExchangeRateResponse
+import com.example.exchange.models.Rate
 
 class CurrencyUtils {
     companion object {
-        fun getCurrencyStringList(exchangeRateResponse: ExchangeRateResponse): Pair<MutableList<String>, HashMap<String, Double>> {
+        fun getCurrencyStringList(rate: Rate): Pair<MutableList<String>, HashMap<String, Double>> {
 
             val currencyList = mutableListOf<String>()
             val currencyStringsMap = HashMap<String, Double>()
-            if (exchangeRateResponse.rates.cAD?.isFinite() == true && exchangeRateResponse.rates.cAD > 0) {
+            if (rate.cAD?.isFinite() == true && rate.cAD > 0) {
                 currencyList.add("CAD")
-                currencyStringsMap["CAD"] = exchangeRateResponse.rates.cAD
+                currencyStringsMap["CAD"] = rate.cAD
             }
-            if (exchangeRateResponse.rates.hKD?.isFinite() == true && exchangeRateResponse.rates.hKD > 0) {
+            if (rate.hKD?.isFinite() == true && rate.hKD > 0) {
                 currencyList.add("HKD")
-                currencyStringsMap["HKD"] = exchangeRateResponse.rates.hKD
+                currencyStringsMap["HKD"] = rate.hKD
             }
-            if (exchangeRateResponse.rates.iSK?.isFinite() == true && exchangeRateResponse.rates.iSK > 0) {
+            if (rate.iSK?.isFinite() == true && rate.iSK > 0) {
                 currencyList.add("ISK")
-                currencyStringsMap["ISK"] = exchangeRateResponse.rates.iSK
+                currencyStringsMap["ISK"] = rate.iSK
             }
-            if (exchangeRateResponse.rates.pHP?.isFinite() == true && exchangeRateResponse.rates.pHP > 0) {
+            if (rate.pHP?.isFinite() == true && rate.pHP > 0) {
                 currencyList.add("PHP")
-                currencyStringsMap["PHP"] = exchangeRateResponse.rates.pHP
+                currencyStringsMap["PHP"] = rate.pHP
             }
-            if (exchangeRateResponse.rates.dKK?.isFinite() == true && exchangeRateResponse.rates.dKK > 0) {
+            if (rate.dKK?.isFinite() == true && rate.dKK > 0) {
                 currencyList.add("DKK")
-                currencyStringsMap["DKK"] = exchangeRateResponse.rates.dKK
+                currencyStringsMap["DKK"] = rate.dKK
             }
-            if (exchangeRateResponse.rates.hUF?.isFinite() == true && exchangeRateResponse.rates.hUF > 0) {
+            if (rate.hUF?.isFinite() == true && rate.hUF > 0) {
                 currencyList.add("HUF")
-                currencyStringsMap["HUF"] = exchangeRateResponse.rates.hUF
+                currencyStringsMap["HUF"] = rate.hUF
             }
-            if (exchangeRateResponse.rates.cZK?.isFinite() == true && exchangeRateResponse.rates.cZK > 0) {
+            if (rate.cZK?.isFinite() == true && rate.cZK > 0) {
                 currencyList.add("CZK")
-                currencyStringsMap["CZK"] = exchangeRateResponse.rates.cZK
+                currencyStringsMap["CZK"] = rate.cZK
             }
-            if (exchangeRateResponse.rates.gBP?.isFinite() == true && exchangeRateResponse.rates.gBP > 0) {
+            if (rate.gBP?.isFinite() == true && rate.gBP > 0) {
                 currencyList.add("GBP")
-                currencyStringsMap["GBP"] = exchangeRateResponse.rates.gBP
+                currencyStringsMap["GBP"] = rate.gBP
             }
-            if (exchangeRateResponse.rates.rON?.isFinite() == true && exchangeRateResponse.rates.rON > 0) {
+            if (rate.rON?.isFinite() == true && rate.rON > 0) {
                 currencyList.add("RON")
-                currencyStringsMap["RON"] = exchangeRateResponse.rates.rON
+                currencyStringsMap["RON"] = rate.rON
             }
-            if (exchangeRateResponse.rates.sEK?.isFinite() == true && exchangeRateResponse.rates.sEK > 0) {
+            if (rate.sEK?.isFinite() == true && rate.sEK > 0) {
                 currencyList.add("SEK")
-                currencyStringsMap["SEK"] = exchangeRateResponse.rates.sEK
+                currencyStringsMap["SEK"] = rate.sEK
             }
-            if (exchangeRateResponse.rates.iDR?.isFinite() == true && exchangeRateResponse.rates.iDR > 0) {
+            if (rate.iDR?.isFinite() == true && rate.iDR > 0) {
                 currencyList.add("IDR")
-                currencyStringsMap["IDR"] = exchangeRateResponse.rates.iDR
+                currencyStringsMap["IDR"] = rate.iDR
             }
-            if (exchangeRateResponse.rates.iNR?.isFinite() == true && exchangeRateResponse.rates.iNR > 0) {
+            if (rate.iNR?.isFinite() == true && rate.iNR > 0) {
                 currencyList.add("INR")
-                currencyStringsMap["INR"] = exchangeRateResponse.rates.iNR
+                currencyStringsMap["INR"] = rate.iNR
             }
-            if (exchangeRateResponse.rates.bRL?.isFinite() == true && exchangeRateResponse.rates.bRL > 0) {
+            if (rate.bRL?.isFinite() == true && rate.bRL > 0) {
                 currencyList.add("BRL")
-                currencyStringsMap["BRL"] = exchangeRateResponse.rates.bRL
+                currencyStringsMap["BRL"] = rate.bRL
             }
-            if (exchangeRateResponse.rates.rUB?.isFinite() == true && exchangeRateResponse.rates.rUB > 0) {
+            if (rate.rUB?.isFinite() == true && rate.rUB > 0) {
                 currencyList.add("RUB")
-                currencyStringsMap["RUB"] = exchangeRateResponse.rates.rUB
+                currencyStringsMap["RUB"] = rate.rUB
             }
-            if (exchangeRateResponse.rates.hRK?.isFinite() == true && exchangeRateResponse.rates.hRK > 0) {
+            if (rate.hRK?.isFinite() == true && rate.hRK > 0) {
                 currencyList.add("HRK")
-                currencyStringsMap["HRK"] = exchangeRateResponse.rates.hRK
+                currencyStringsMap["HRK"] = rate.hRK
             }
-            if (exchangeRateResponse.rates.jPY?.isFinite() == true && exchangeRateResponse.rates.jPY > 0) {
+            if (rate.jPY?.isFinite() == true && rate.jPY > 0) {
                 currencyList.add("JPY")
-                currencyStringsMap["JPY"] = exchangeRateResponse.rates.jPY
+                currencyStringsMap["JPY"] = rate.jPY
             }
-            if (exchangeRateResponse.rates.tHB?.isFinite() == true && exchangeRateResponse.rates.tHB > 0) {
+            if (rate.tHB?.isFinite() == true && rate.tHB > 0) {
                 currencyList.add("THB")
-                currencyStringsMap["THB"] = exchangeRateResponse.rates.tHB
+                currencyStringsMap["THB"] = rate.tHB
             }
-            if (exchangeRateResponse.rates.cHF?.isFinite() == true && exchangeRateResponse.rates.cHF > 0) {
+            if (rate.cHF?.isFinite() == true && rate.cHF > 0) {
                 currencyList.add("CHF")
-                currencyStringsMap["CHF"] = exchangeRateResponse.rates.cHF
+                currencyStringsMap["CHF"] = rate.cHF
             }
-            if (exchangeRateResponse.rates.eUR?.isFinite() == true && exchangeRateResponse.rates.eUR > 0) {
+            if (rate.eUR?.isFinite() == true && rate.eUR > 0) {
                 currencyList.add("EUR")
-                currencyStringsMap["EUR"] = exchangeRateResponse.rates.eUR
+                currencyStringsMap["EUR"] = rate.eUR
             }
-            if (exchangeRateResponse.rates.mYR?.isFinite() == true && exchangeRateResponse.rates.mYR > 0) {
+            if (rate.mYR?.isFinite() == true && rate.mYR > 0) {
                 currencyList.add("MYR")
-                currencyStringsMap["MYR"] = exchangeRateResponse.rates.mYR
+                currencyStringsMap["MYR"] = rate.mYR
             }
-            if (exchangeRateResponse.rates.bGN?.isFinite() == true && exchangeRateResponse.rates.bGN > 0) {
+            if (rate.bGN?.isFinite() == true && rate.bGN > 0) {
                 currencyList.add("BGN")
-                currencyStringsMap["BGN"] = exchangeRateResponse.rates.bGN
+                currencyStringsMap["BGN"] = rate.bGN
             }
-            if (exchangeRateResponse.rates.tRY?.isFinite() == true && exchangeRateResponse.rates.tRY > 0) {
+            if (rate.tRY?.isFinite() == true && rate.tRY > 0) {
                 currencyList.add("TRY")
-                currencyStringsMap["TRY"] = exchangeRateResponse.rates.tRY
+                currencyStringsMap["TRY"] = rate.tRY
             }
-            if (exchangeRateResponse.rates.cNY?.isFinite() == true && exchangeRateResponse.rates.cNY > 0) {
+            if (rate.cNY?.isFinite() == true && rate.cNY > 0) {
                 currencyList.add("CNY")
-                currencyStringsMap["CNY"] = exchangeRateResponse.rates.cNY
+                currencyStringsMap["CNY"] = rate.cNY
             }
-            if (exchangeRateResponse.rates.nOK?.isFinite() == true && exchangeRateResponse.rates.nOK > 0) {
+            if (rate.nOK?.isFinite() == true && rate.nOK > 0) {
                 currencyList.add("NOK")
-                currencyStringsMap["NOK"] = exchangeRateResponse.rates.nOK
+                currencyStringsMap["NOK"] = rate.nOK
             }
-            if (exchangeRateResponse.rates.nZD?.isFinite() == true && exchangeRateResponse.rates.nZD > 0) {
+            if (rate.nZD?.isFinite() == true && rate.nZD > 0) {
                 currencyList.add("NZD")
-                currencyStringsMap["NZD"] = exchangeRateResponse.rates.nZD
+                currencyStringsMap["NZD"] = rate.nZD
             }
-            if (exchangeRateResponse.rates.zAR?.isFinite() == true && exchangeRateResponse.rates.zAR > 0) {
+            if (rate.zAR?.isFinite() == true && rate.zAR > 0) {
                 currencyList.add("ZAR")
-                currencyStringsMap["ZAR"] = exchangeRateResponse.rates.zAR
+                currencyStringsMap["ZAR"] = rate.zAR
             }
-            if (exchangeRateResponse.rates.uSD?.isFinite() == true && exchangeRateResponse.rates.uSD > 0) {
+            if (rate.uSD?.isFinite() == true && rate.uSD > 0) {
                 currencyList.add("USD")
-                currencyStringsMap["USD"] = exchangeRateResponse.rates.uSD
+                currencyStringsMap["USD"] = rate.uSD
             }
-            if (exchangeRateResponse.rates.mXN?.isFinite() == true && exchangeRateResponse.rates.mXN > 0) {
+            if (rate.mXN?.isFinite() == true && rate.mXN > 0) {
                 currencyList.add("MXN")
-                currencyStringsMap["MXN"] = exchangeRateResponse.rates.mXN
+                currencyStringsMap["MXN"] = rate.mXN
             }
-            if (exchangeRateResponse.rates.sGD?.isFinite() == true && exchangeRateResponse.rates.sGD > 0) {
+            if (rate.sGD?.isFinite() == true && rate.sGD > 0) {
                 currencyList.add("SGD")
-                currencyStringsMap["SGC"] = exchangeRateResponse.rates.sGD
+                currencyStringsMap["SGC"] = rate.sGD
             }
-            if (exchangeRateResponse.rates.aUD?.isFinite() == true && exchangeRateResponse.rates.aUD > 0) {
+            if (rate.aUD?.isFinite() == true && rate.aUD > 0) {
                 currencyList.add("AUD")
-                currencyStringsMap["AUD"] = exchangeRateResponse.rates.aUD
+                currencyStringsMap["AUD"] = rate.aUD
             }
-            if (exchangeRateResponse.rates.kRW?.isFinite() == true && exchangeRateResponse.rates.kRW > 0) {
+            if (rate.kRW?.isFinite() == true && rate.kRW > 0) {
                 currencyList.add("KRW")
-                currencyStringsMap["KRW"] = exchangeRateResponse.rates.kRW
+                currencyStringsMap["KRW"] = rate.kRW
             }
-            if (exchangeRateResponse.rates.pLN?.isFinite() == true && exchangeRateResponse.rates.pLN > 0) {
+            if (rate.pLN?.isFinite() == true && rate.pLN > 0) {
                 currencyList.add("PLN")
-                currencyStringsMap["PLN"] = exchangeRateResponse.rates.pLN
+                currencyStringsMap["PLN"] = rate.pLN
             }
-            if (exchangeRateResponse.rates.iLS?.isFinite() == true && exchangeRateResponse.rates.iLS > 0) {
+            if (rate.iLS?.isFinite() == true && rate.iLS > 0) {
                 currencyList.add("ILS")
-                currencyStringsMap["ILS"] = exchangeRateResponse.rates.iLS
+                currencyStringsMap["ILS"] = rate.iLS
             }
             return Pair(currencyList, currencyStringsMap)
         }

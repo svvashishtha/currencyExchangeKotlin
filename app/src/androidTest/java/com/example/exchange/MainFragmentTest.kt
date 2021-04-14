@@ -36,9 +36,11 @@ class MainFragmentTest {
     fun getCurrencyStrings() {
         hiltRule.inject()
         runBlocking {
-            val pair = getCurrencyStringList(repo.getExchangeRate())
-            currencyStrings.addAll(pair.first)
-            currencyStringsMap = pair.second
+            repo.getExchangeRate().rates?.let {
+                val pair = getCurrencyStringList(it)
+                currencyStrings.addAll(pair.first)
+                currencyStringsMap = pair.second
+            }
         }
     }
 
